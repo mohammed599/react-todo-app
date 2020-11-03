@@ -23,13 +23,13 @@ function App() {
     }
   ])
   
-  const addTask = (task)=>{
-    setTasks(tasks.push(task))
-  }
+  // const addTask = (task) => {
+  //   setTasks([...tasks, {task}])
+  // }
   return (
     <div className="App">
     <Tasks tasks={tasks}/>
-    <AddTasks addTask ={addTask()}/>
+    <AddTasks addTask ={(task) => setTasks([...tasks, task])}/>
 
       
     </div>
