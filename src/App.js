@@ -1,7 +1,7 @@
 import './App.css';
 import AddTasks from './components/AddTasks';
-import Tasks from './components/Tasks'
-import {useState} from 'react'
+import Tasks from './components/Tasks';
+import {useState} from 'react';
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -23,17 +23,22 @@ function App() {
     }
   ])
   
-  // const addTask = (task) => {
-  //   setTasks([...tasks, {task}])
-  // }
+  
   return (
     <div className="App">
-    <Tasks tasks={tasks}/>
-    <AddTasks addTask ={(task) => setTasks([...tasks, task])}/>
+    <Tasks tasks={tasks} removeTask = {(index) => setTasks((prevTasks)=>{
+        prevTasks.splice(index, 1)
+        return [...prevTasks]
+    })}/>
+    <AddTasks addTask ={(task) => setTasks([...tasks, task])} tasks={tasks}/>
 
       
     </div>
-  );
+  )
 }
 
-export default App;
+export default App 
+    
+    
+
+

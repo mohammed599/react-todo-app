@@ -1,10 +1,11 @@
 import React from 'react'
 
-const AddTasks = ({addTask}) => {
+const AddTasks = (props) => {
     const addToTaskList = (e) => {
         let value = e.target.previousSibling.value
         //addTask({id:5, title:value})
-        addTask({id:5, title:value})
+        props.addTask({id:props.tasks.length + 1, title:value})
+        //console.log(props.tasks)
     }
     return (
         <div>
